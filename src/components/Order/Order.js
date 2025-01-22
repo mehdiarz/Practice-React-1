@@ -1,6 +1,7 @@
 import React from "react";
 
 import Wrapper from "../../hoc/Wrapper";
+import Button from "../UI/Button/Button";
 
 const Order =(props) => {
     const orders = Object.keys(props.products).map((item)=>{
@@ -16,7 +17,10 @@ const Order =(props) => {
             <ul>
                 {orders}
             </ul>
-        
+            <p>Total Price : {props.totalPrice}</p>
+            <p>Continue?!</p>
+            <Button btnType = "success" click={props.continue}>YES</Button>
+            <Button btnType = "danger" click={props.cancel}>NO</Button>
         </Wrapper>
     )
 }

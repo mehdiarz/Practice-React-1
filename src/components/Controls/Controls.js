@@ -24,7 +24,7 @@ const Controls = (props) => {
                 remove={() => props.productRemove(item.type)}>
                 </Builder>
             })}
-            <button className="order-btn">Order</button>
+            <button onClick={props.order} className="order-btn">Order</button>
         </div>
     )
 }

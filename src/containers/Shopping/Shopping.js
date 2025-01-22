@@ -21,7 +21,7 @@ class Shopping extends React.Component{
             product4: 0,
         },
         totalPrice: 0,
-
+        purchased: false,
     }
 
 
@@ -53,15 +53,25 @@ class Shopping extends React.Component{
             console.log("no product")
         }
     }
+
+    purchasedHandler = () => {
+        this.setState({purchased: !this.state.purchased})
+    }
+
+    modalCloseHandler = () => {
+        this.setState({purchased: false})
+    }
+
     render(){
         return(
             <Wrapper>
-                <Modal>
+                <Modal show={this.state.purchased} modalClose={this.modalCloseHandler}>
                     <Order products = {this.state.products}></Order>
                 </Modal>
             <Controls productAdd = {this.addProductHandler} 
                 productRemove={this.removeProductHandler}
-                price = {this.state.totalPrice}>
+                price = {this.state.totalPrice}
+                order = {this.purchasedHandler}>
             </Controls>
         </Wrapper>
         )

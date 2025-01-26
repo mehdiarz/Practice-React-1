@@ -7,7 +7,7 @@ import './Navbar.css'
 const Navbar =(props) =>{
     return(
         <header className="navbar">
-            <nav>
+            <nav> 
                 <Navitems></Navitems>
             </nav>
         </header>

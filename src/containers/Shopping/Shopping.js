@@ -1,11 +1,13 @@
 import React from "react";
 
+
 import Wrapper from "../../hoc/Wrapper";
 import Controls from "../../components/Controls/Controls";
 import Modal from "../../components/UI/Modal/Modal";
 import Order from "../../components/Order/Order";
 import axios from "../../axios-orders";
 import Loader from "../../components/UI/Loader/Loader";
+
 
 const  prices = { 
     product1: 65,
@@ -22,6 +24,7 @@ class Shopping extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props)
         axios.get('https://react-practice-1-abe5b-default-rtdb.firebaseio.com/products.json')
         .then(response => {
             this.setState({products: response.data})
@@ -66,6 +69,7 @@ class Shopping extends React.Component{
     }
 
     purchaseContinueHandler = () =>{
+        
         this.setState({loading: true})
         const order = {
             products : this.state.products,

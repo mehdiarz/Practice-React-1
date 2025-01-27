@@ -1,8 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router} from "react-router-dom"
+import { BrowserRouter as Router , Route, Routes} from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import Shopping from "./containers/Shopping/Shopping";
+import Checkout from "./containers/Checkout/Checkout";
+
 
 
 class App extends React.Component{
@@ -11,7 +13,10 @@ class App extends React.Component{
       <div>
         <Router>
           <Layout>
-            <Shopping></Shopping>
+            <Routes>
+            <Route path="/checkout"  Component={Checkout} />
+            <Route path="/" exact element={<Shopping />}/>
+            </Routes>
           </Layout>
         </Router> 
       </div>
